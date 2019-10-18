@@ -1,0 +1,49 @@
+.echo on
+.headers on
+
+Name: tsqlfuns-hw2b
+Author: Gregory Stephens
+Date: July 7 2019
+
+1. What is a data type? Why do we have data types?
+an attribute specifying the type of data that an object holds
+
+2. What is a collation? Name four elements of a collation.
+a property of character data. it encapsulates language support, sort order, case sensitivity and accent sensitivity
+
+3. How would you strip whitespace from a string? For example, suppose you had "    Dave    " but wanted only "Dave".
+you use the LTRIM and RTRIM commands. if you wanted to remove both sides at the same time (ex above) you would write the code as such:
+SELECT RTRIM(LTRIM("    DAVE    "));
+
+4. Suppose you wanted to make a list of every college and university that was called an Institute from the college table. Write the query
+Select college, university from college where type like Institute
+
+5. How would you find out the index of the first space in a string?" For example, the index of the first space in "Barack Hussein Obama" would be 7
+use the CHARINDEX function. code would look like SELECT CHARINDEX(' ','Barack Hussein Obama');
+
+6. How would you select just the first name in a list of the presidents. Each record looks like the: "George Washington","John Adams". First names can be an arbitrary length, from "Cal" to "Benjamin." (ex., Cal College, Benjamin Harrison)
+use the STRING_SPLIT function. 
+SELECT NAME AS FIRSTNAME FROM STRING_SPLIT('VARCHAR', ' ' 
+
+7. What is the order of precedence for the logical operators?
+FROM, WHERE, GROUP BY, HAVING, SELECT expressions, distinct, ORDERY BY top/offset-fetch 
+
+8. What is the order of precedence for the math operators?
+()parentheses,
+*multiplication, /division, %modulo
++positive, -negative, +addition, +concatenation, -subtraction
++,>,<,?=,<=,<>,!=,!>,!<   comparison operators
+NOT
+And
+Between, in, like, or
+=assignment
+
+9. What is the difference between a simple and a searched CASE expression?;
+simple case expressions hav a single value or expression right aver the CASE keyword that is complared to a list of possible values in the when clauses
+searched case allows you to specify predicates in the when clause. you arent restricted to equality comparisons, offering more freedom.
+
+10. How would you turn a list of names like this: "LASTNAME, FIRSTNAME" to a list like this: "FIRSTNAME, LASTNAME"?
+ORDERBY function
+
+11. How would you turn a list of names like this: "FIRSTNAME, LASTNAME" to a list like this: "LASTNAME, FIRSTNAME"?
+ORDERBY function

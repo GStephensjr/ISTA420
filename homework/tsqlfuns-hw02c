@@ -1,0 +1,35 @@
+1. What is a data type? Why do we have data types?
+A data type is an attribute that specifies the type of data that the object can hold
+the computer requires data types to accurately use the data it gets. it cant distinguish between integers and strings, it has to be told.
+
+2. What is a collation? Name four elements of a collation.
+Collation refers to a set of rules that determine how data is sorted and compared. Character data is sorted using rules that define the correct character sequence, with options for specifying case-sensitivity, accent marks, kana character types and character width.
+language support, sort order, case sensitivity, accent sensitivity
+
+3. How would you strip whitespace from a string? For example, suppose you had “ Dave ” but
+wanted only “Dave”.
+LTRIM and RTRIM commands. or just TRIM
+
+4. Suppose you wanted to make a list of every college and university that was called an Institute from
+the college table. Write the query.
+Select * from college where name like "%Institute%";
+
+5. How would you find out the index of the first space in a string? For example, the index of the first
+space in “Barack Hussein Obama” would be 7.
+SELECT CHARINDEX(" ");
+
+6. How would you select just the first name in a list of the presidents. First names can be an arbitrary
+length, from “Cal” to “Benjamin.”
+SELECT NAME FROM PRESIDENTS WHERE NAME LIKE ("& ");
+
+--7. PAYMENTS ARE DUE EXACTLY 30 DAYS FROM THE DATE OF THE LAST FUNCTION. WRITE A SELECT QUERY THAT CALCULATES THE 
+DATE OF THE NEXT PAYMENT. WE WILL DO THIS WHEN WE WRITE UPDATE QUERIES.
+select orderdate, dateadd(day, 30, orderdate) as due_date from dbo.orders;
+
+--8. SUPPOSE YOUR SON OR DAUGHTER WANTS TO RUN A QUERY EVERY DAY THAT TELLS THEM THE NUMBER OF DAYS
+UNTIL THEIR 16TH BIRTHDAY. WRITE A SELECT QUERY THAT DOES THIS. 
+select datediff(day, '2006-09-18' current_timestamp);
+
+--9. WHAT FUNCTION RETURNS THE CURRENT DATE? THIS IS VERY USEFUL IN A TABLE THAT MAINTAINS A LOG OF EVENTS
+SUCH AS USER LOGINS.
+select current_timestamp;

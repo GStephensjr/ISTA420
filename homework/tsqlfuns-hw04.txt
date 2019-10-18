@@ -1,0 +1,43 @@
+1. In your own words, what is a subquery?
+a subquery has a query within a query. the inner query resolves its answer to the outer query who resolves to the requestor
+
+2. In your own words, what is a self contained subquery?
+self contained subqueries are queries that run independently of the tables of the outer query
+inner self contained subqueries can be run by themselves
+
+3. In your own words, what is a correlated subquery?
+a correlated subquery is dependent on the outer tables from the outer query. 
+in order for a correlated subquery to work, it needs data from the outer query.
+
+4. Give an example of a subquery that returns a single value. When would you use this kind of subquery?
+
+
+5. Give an example of a subquery that returns multiple values. When would you use this kind of subquery?
+say you were looking specifically for zipcodes your store uses.
+
+6. Give an example of a subquery that returns table values. When would you use this kind of subquery?
+anytime you use a subquery in the from clause. the from clause returns table values
+
+7. What does the exists predicate do? Give an example.
+it returns two valued logic
+
+8. What happens if we use the not operator before a predicate? Give an example.
+reverses the true value.
+pg 146. Let’s start with the part that does behave like you expect it to. The IN predicate returns TRUE for a
+customer who placed orders (for example, customer 85), because such a customer is returned by the
+subquery. The NOT operator negates the IN predicate; hence, the NOT TRUE becomes FALSE, and the
+customer is discarded.
+
+9. When you use exists or not exists with respect to a row in a database, does it return two or three
+values? Explain your answer.
+it only returns two values. true/false. it cant return true/false/unknown because there's no question 
+of the existence of the data elsewhere. either the row is there or it isnt.
+
+10. How would you a subquery to calculate aggregates? For example, you want to calculate yearly sales
+of a product, and you also want to keep a running sum of total sales. Explain how you would use a
+subquery to do this.
+
+
+
+
+

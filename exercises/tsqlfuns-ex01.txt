@@ -1,0 +1,33 @@
+.headers on
+
+--Name: tsqlfuns-ex01
+--Author: Greg Stephens
+--Date: July 2, 2019
+
+
+drop table if exists JazzBand;
+
+
+create table JazzBand (
+id integer,
+Instrument text,
+Family text,
+Clef text,
+Players number
+);
+
+insert into JazzBand values (1, "Trumpet", "Brass", "Treble", 4);
+insert into JazzBand values (2, "Bass", "Strings", "Bass", 2);
+insert into JazzBand values (3, "Guitar", "Strings", "Treble", 2);
+insert into JazzBand values (4, "Sax", "Woodwind", "Treble", 8);
+insert into Jazzband values (5, "Trombone", "Brass", "Bass", 3);
+insert into JazzBand values (6, "Clarinet", "Woodwind", "Treble", 4);
+
+select * from JazzBand;
+id|Instrument|Family|Clef|Players
+1|Trumpet|Brass|Treble|4
+2|Bass|Strings|Bass|2
+3|Guitar|Strings|Treble|2
+4|Sax|Woodwind|Treble|8
+5|Trombone|Brass|Bass|3
+6|Clarinet|Woodwind|Treble|4

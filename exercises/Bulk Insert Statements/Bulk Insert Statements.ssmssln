@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# SQL Server Management Studio Solution File, Format Version 18.00
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "Bulk Insert Statements", "Bulk Insert Statements\Bulk Insert Statements.ssmssqlproj", "{9E1ABA34-ED40-4584-90A6-EF6BBC11530F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Default|Default = Default|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9E1ABA34-ED40-4584-90A6-EF6BBC11530F}.Default|Default.ActiveCfg = Default
+		{F101866A-3018-46D6-B914-99CA04B93439}.Default|Default.ActiveCfg = Default
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {05E31DE5-4FCF-44C6-AABD-4D2B2CD3BEC2}
+	EndGlobalSection
+EndGlobal

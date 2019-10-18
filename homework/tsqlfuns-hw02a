@@ -1,0 +1,36 @@
+Name: tsqlfuns-hw2a.txt
+Author: Greg Stephens
+Date: 7 July, 2019
+
+1. List the order of execution of a SQL query.
+FROM, WHER, GROUP BY, HAVING, SELECT, ORDER BY
+
+2. What does the from clause do?
+Specify the names of the tables you want to query  and ttable operators that operate on those tables.
+
+3. What does the where clause do?
+Specify a predicate/logical expression to filter rows. 
+
+4. What does the group by clause do?
+Arranges the rows returned in the query  by elements specified in the clause
+
+5. What does the having clause do?
+A group filter. Groups where the having predicate resolves to TRUE are included. Those returned FALSE or NULL are discarded.
+
+6. What does the select clause do?
+Specifies the attributes/columns you want returned in the resulting query table.
+
+7. What does the distinct keyword do?
+Provides the means to remove duplicates, returning a relational result
+
+8. What does the order by clause do?
+Sort rows in the output to present specific information
+
+9. What does the limit clause do? This is not in the book.
+Confines the returned query to only a specific set of answers depending on the value of the limit
+
+10. What does the top clause do?
+Limits the number or percentage of rows the query returns. Relies on percent of rows to return and ordering of the query return.
+
+11. What do the offset . . . fetch . . . clauses do?
+Indicates how many rows to skip  and how many rows to filter after the skipped rows. Considered to be an extension to the ORDER BY clause.

@@ -1,0 +1,68 @@
+.echo on
+.headers on
+
+--Name: tsqlfuns-hw03.txt
+--Author: Greg Stephens
+--Date: 14 July, 2019
+
+--1. In general, why would you even want to join two (or more) tables together? This is a good time to
+--think about the nature of relational algebra.
+joining two tables together allows you to mix information from each table to create entirely new information.
+in mathematics alone, multiplying, dividing, adding and subtracting values from different tables while creating an entirely
+new table at the same time is extremely useful in presenting calculations that dont have to be performed by hand. (essential what excel does)
+
+--2. Describe in your own words the output from an inner join.
+the output would be lke matching rows from one table with rows from another table that share a common id pg 108
+the inner join applies a cartesian product between two tables and then filters rows based on a specified predicate
+
+--3. Describe in your own words the output from an outer join.
+pg 114. the table on this page of the book displays how outer join functions. the first two phases provided the new information to the
+table but the third phase (unique to this specific function) actually adds this information as tables added to the outer edge of the table
+the outer join function applies cartesian product and the ON filter along with a phase called 'adding outer rows'
+
+--4. Describe in your own words the output from a cross join.
+the cross join is the simplest of the three joins in that it only applies the cartesian product between the table.
+it applies one row from the input and applies it to the rows from another. m|  |mxn|  |n
+
+--5. A convenient mnemonic for remembering the various joins is “Ohio.” Why is this true?
+the i in ohio is for the inner function creating the inner table with the information. the o''s in ohio are for the outer functions
+and how they are applied to the outer edges of the table
+"what's high in the middle and round on each end?"
+
+--6. Give an example of a composite join.
+pg 110
+suppose you have a foreign key defined on dbo.Table2, columns col1, col2,
+referencing dbo.Table1, columns col1, col2, and you need to write a query that joins the two based on
+this relationship. The FROM clause of the query would look like this:
+FROM dbo.Table1 AS T1
+INNER JOIN dbo.Table2 AS T2
+ON T1.col1 = T2.col1
+AND T1.col2 = T2.col2
+
+
+--7. What is the difference between the following two queries? The business problem is “How many orders
+--do we have from each customer?”
+--================first query===============
+--SELECT C.custid, COUNT(*) AS numorders
+--FROM Sales.Customers AS C
+--LEFT OUTER JOIN Sales.Orders AS O
+--ON C.custid = O.custid
+--GROUP BY C.custid;
+--================second query===============
+--SELECT C.custid, COUNT(O.orderid) AS numorders
+--FROM Sales.Customers AS C
+--LEFT OUTER JOIN Sales.Orders AS O
+--ON C.custid = O.custid
+--GROUP BY C.custid;
+the first query will return the number of customers into the table whether or not they actually have more than one order or 
+if they actually have any orders at allows
+the second query will return specifically the count of order ids without an application to any customers
+
+
+--8. What might be one reason the following query does not return the column custID in this query?
+--SELECT C.custid, C.companyname, O.orderid, O.orderdate
+--FROM Sales.Customers AS C
+--LEFT OUTER JOIN Sales.Orders AS O
+--ON C.custid = O.custid
+--WHERE O.orderdate >= ’20160101’;
+20160101 is new years day, there most likely would not be any orders 

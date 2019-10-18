@@ -1,0 +1,69 @@
+# Name: tsqlfuns-hw05
+
+#### Author: Greg Stephens
+
+#### Date: 21 July, 2019
+
+##### 1. What is a table expression? Can you give a technical definition of a table expression?
+a named query expression that represents a valid relational tables.
+its a query that when returned will produce a table
+##### 2. In what SQL clause are derived tables (table valued subqueries) located?
+the FROM clause of an outer query
+##### 3. Why can you refer to column aliases in an outer query that you defined in an inner table valued subquery?
+the subquery was evaluated before the outer query was evaluated
+##### 4. What SQL key word defines a common table expression?
+WITH operator
+##### 5. When using common table expressions, can a subsequent derived table use a table alias declared in a preceding table expression?
+yes, its the same principle as using aliases for queries that were defined in subqueries
+##### 6. Can a main query refer to a previously defined common table expression by multiple aliases?
+yes (pg 169)
+##### 7. In SQL, is a view a durable object?
+no, a view isn't a permanent object. it stays in temporary memory
+##### 8. In a view, what does WITH CHECK OPTION do? Why is this important?
+adding a WITH CHECK OPTION prevents the view from accepting modifications
+that might conflict with the view filter
+##### 9. In a view, what does SCHEMABINDING do? Why is this important?
+the SCHEMABINDING option binds the schema of referenced objects and
+columns to the schema of the referencing object. it makes sure the system
+understands that the columns cant be dropped from the schema.
+it helps to avoid later errors where the you may drop columns later
+and entries turn up null because its reference was deleted.
+##### 10. What is a table valued function?
+they're reusable table expressions that support input parameters
+they're sort of like templates that take your inputs and create a table
+
+##### 11. What does the APPLY operator do?
+APPLY operator returns only those rows from the left table expression
+(in its final output) if it matches with the right table expression
+apply is like join only there's no order between its inputs so there's
+no order
+with APPLY, the left side is evaluated, and ten the right is evaluated
+ per row from the left
+so you can have references in the right from the left but not vice versa.
+
+##### 12. What are the two forms of the APPLY operator? Give an example of each.
+pg. 180-181 CROSS APPLY and OUTER APPLY
+
+- OUTER APPLY(pg 182):
+
+...
+
+    SELECT C.custid, A.orderid, A.orderdate
+    FROM Sales.Customers AS C
+    OUTER APPLY
+    (SELECT TOP (3) orderid, empid, orderdate, requireddate
+    FROM Sales.Orders AS O
+    WHERE O.custid = C.custid
+    ORDER BY orderdate DESC, orderid DESC) AS A;
+
+...
+
+- CROSS APPLY(pg 180):
+
+...
+
+    SELECT S.shipperid, E.empid
+    FROM Sales.Shippers AS S
+    CROSS APPLY HR.Employees AS E;
+
+...
